@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.FTC2022;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.hardware.bosch.BNO055IMUImpl;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -15,12 +16,12 @@ public class hardwareMap {
     public DcMotor centerArm2 = null;
     public DcMotor extender = null;
     public DcMotor spinner = null;
+    public BNO055IMU imu = null;
 
     //Create Servo
     //public Servo servo1 = null;
 
     //Create IMU
-    public BNO055IMU imu;
 
     //Additional Variable
     com.qualcomm.robotcore.hardware.HardwareMap hardwareMap = null;
@@ -39,10 +40,9 @@ public class hardwareMap {
     public hardwareMap() {
     }
 
-    /* Initialize standard Hardware interfaces */
+    // Initialize standard Hardware interfaces
     public void init(HardwareMap ahwMap) {
         hardwareMap = ahwMap;
-
 
         // Connect Motors
         frontRight = hardwareMap.get(DcMotor.class, "FR");
@@ -58,6 +58,7 @@ public class hardwareMap {
         //servo1 = hardwareMap.get(Servo.class, "servo1");
 
         //IMU Inititalization
+        imu = hardwareMap.get(BNO055IMU.class, "imu");
         Init_IMU(imu);
 
         //Set up the directions
