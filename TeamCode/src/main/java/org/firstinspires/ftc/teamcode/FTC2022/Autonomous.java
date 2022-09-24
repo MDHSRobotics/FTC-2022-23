@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.FTC2022;
 
+import static java.lang.Math.round;
+
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
@@ -19,25 +21,25 @@ public class Autonomous extends LinearOpMode{
         hardware.init(hardwareMap);
         hardware.setBrakeMode(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        Acceleration acceleration;
-        double z_orientation;
+        Orientation orientation;
 
         waitForStart();
         if (opModeIsActive()) {
             while (opModeIsActive()) {
-                acceleration = (Acceleration) hardware.imu.getAcceleration();
-                z_orientation = getZAxisOrientation();
-                telemetry.addData("Acceleration", acceleration);
-                telemetry.addData("Z Rotation", z_orientation);
+                orientation = getAxisOrientation();
+                telemetry.addData("Z Rotation", round(orientation.firstAngle));
+                telemetry.addData("Y Rotation", round(orientation.secondAngle));
+                telemetry.addData("X Rotation", round(orientation.thirdAngle));
+                telemetry.update();
             }
         }
     }
 
-    public double getZAxisOrientation(){
+    public Orientation getAxisOrientation(){
         Orientation rotation = hardware.imu.getAngularOrientation(AxesReference.EXTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-        double zOrientation = rotation.firstAngle;
-        return zOrientation;
+        return rotation;
     }
+
     private void moveTo(double x, double y, double rotation_degrees){
 
     }
