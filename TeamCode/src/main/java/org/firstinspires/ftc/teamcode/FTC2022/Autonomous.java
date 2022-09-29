@@ -11,7 +11,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "Autonomous 2022", group = "2022")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name = "Autonomous 2022", group = "2022", preselectTeleOp = "Drive2022")
 public class Autonomous extends LinearOpMode{
 
     org.firstinspires.ftc.teamcode.FTC2022.hardwareMap hardware = new hardwareMap();
