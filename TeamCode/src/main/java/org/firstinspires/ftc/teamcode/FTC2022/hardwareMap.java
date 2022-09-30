@@ -6,6 +6,16 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+/*
+->FTC PowerPlay 2022-2023<-
+=HardwareMap by Anthony and TJ=
+This class:
+    1. connects the motors from the configuration into the programs
+    2. sets up the motors and their modes
+    3. initializes the IMU
+
+ */
+
 public class hardwareMap {
     //Create Motors
     public DcMotor frontRight = null;
